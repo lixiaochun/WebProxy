@@ -1,5 +1,6 @@
-# webproxy for IoT-Connected car demo(https://github.com/myminseok/IoT-ConnectedCar)
-IoT-ConnectedCar demo has several apps such as Dashboard, GemfireREST.
+# webproxy for IoT-Connected car demo
+
+IoT-ConnectedCar demo(https://github.com/myminseok/IoT-ConnectedCar) has several apps such as Dashboard, GemfireREST.
 Dashboard app fetches data from GemfireREST api app.
 Due to gemfire-server in spring-xd limitation(development only, it doesn't allow remote client access), 
 GemfireREST app should be installed on spring-xd VM.
