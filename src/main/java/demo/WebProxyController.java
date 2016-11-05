@@ -34,7 +34,7 @@ public class WebProxyController {
 	
 	@RequestMapping(value = "/proxy", method = RequestMethod.GET)
 	public String sayProxy(HttpServletRequest request) throws Exception {
-		// return ("this is a simple http web proxy powered by lixiaochun."); 
-		return getRestTemplate().getForObject(request.getRequestURL().toString(), String.class);
+		 return ("this is a simple http web proxy powered by lixiaochun."); 
+		// return getRestTemplate().getForObject(request.getRequestURL().toString(), String.class);
 	}
 }
