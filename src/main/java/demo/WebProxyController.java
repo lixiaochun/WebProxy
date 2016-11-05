@@ -21,8 +21,14 @@ public class WebProxyController {
 		return restTemplate;
 	}
 
-	@RequestMapping(value = "/**", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/**", method = RequestMethod.GET)
 	public String get(HttpServletRequest request) throws Exception {
+		return getRestTemplate().getForObject(request.getRequestURL().toString(), String.class);
+	}*/
+	
+	@RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
+	public String sayHello(HttpServletRequest request) throws Exception {
+		// return ("this is a simple http web proxy powered by lixiaochun."); 
 		return getRestTemplate().getForObject(request.getRequestURL().toString(), String.class);
 	}
 }
