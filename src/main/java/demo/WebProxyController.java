@@ -32,7 +32,7 @@ public class WebProxyController {
 		return getRestTemplate().getForObject(request.getRequestURL().toString(), String.class);
 	}
 	
-	@RequestMapping(value = "/proxy", method = RequestMethod.GET)
+	@RequestMapping("proxy")
 	public String sayProxy(HttpServletRequest request) throws Exception {
 		 return ("this is a simple http web proxy powered by lixiaochun."); 
 		// return getRestTemplate().getForObject(request.getRequestURL().toString(), String.class);
