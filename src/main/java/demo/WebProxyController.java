@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -43,17 +46,15 @@ public class WebProxyController {
 		return restTemplate;
 	}
 
-	@RequestMapping(value = "/**", method = RequestMethod.GET)
+	@RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
 	public String get(HttpServletRequest request) throws Exception {
 		return getRestTemplate().getForObject(request.getRequestURL().toString(), String.class);
 	}
-
-	/*
-	 * @RequestMapping(value = {"", "/"}, method = RequestMethod.GET) public
-	 * String sayHello(HttpServletRequest request) throws Exception { return
-	 * getRestTemplate().getForObject(request.getRequestURL().toString(),
-	 * String.class); }
-	 */
+	
+	@RequestMapping(value = "/get/{url}", method = RequestMethod.GET)
+    public String url(@PathVariable String url) {
+		return getRestTemplate().getForObject(url, String.class);
+    }
 
 	@RequestMapping("proxy")
 	public String sayProxy(HttpServletRequest request) throws Exception {
